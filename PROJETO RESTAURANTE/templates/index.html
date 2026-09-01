@@ -1,9 +1,21 @@
 {% extends "base.html" %}
 {% block content %}
 
-    <div>
-        <img src="/static/menuexecutivo.jpg" alt="">
-        <p></p>
+    <div class="menuex1">
+        <a href="/cardapio/menuexecutivo">
+            <img 
+                class="menu-card" 
+                style="height: 400px; width: 550px; margin: 10px;" 
+                src="{{ url_for('static', filename='menuexecutivoinicial.png') }}" 
+                alt="Menu Executivo">
+        </a>
+        <a href="/cardapio/queridinhos">
+            <img 
+                class="menu-card" 
+                style="height: 400px; width: 550px; margin: 10px;" 
+                src="{{ url_for('static', filename='queridinhos.png') }}" 
+                alt="Queridinhos">
+        </a>
     </div>
 
 {% endblock %}

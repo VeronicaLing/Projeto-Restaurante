@@ -4,43 +4,31 @@ app = Flask ("Restaurante")
 
 @app.route('/')
 def HomePage():
-    return render_template('base.html')
-
-@app.route('/index')
-def home():
     return render_template('index.html')
 
-@app.route('/cardapio')
-def cardapio():
-    return render_template('cardapio.html')
+@app.route('/cardapio/<categoria>')
+def categoria(categoria):
 
-@app.route('/cardapio/menuexecutivo')
-def menuexecutivo():
-    return render_template('menuexecutivo.html')
+    categorias = {
+        'menuexecutivo': 'Menu Executivo',
+        'bebidas': 'Bebidas',
+        'aves': 'Aves',
+        'carnes': 'Carnes',
+        'teppanyaki': 'Teppanyaki',
+        'frutosdomar': 'Frutos do Mar',
+        'arroz': 'Arroz',
+        'queridinhos': 'Queridinhos',
+    }
 
-@app.route('/cardapio/bebidas')
-def bebidas():
-    return render_template('bebidas.html')
+    nome_categoria = categorias.get(categoria)
 
-@app.route('/cardapio/aves')
-def aves():
-    return render_template('aves.html')
+    if not nome_categoria:
+        return "Categoria não encontrada", 404
 
-@app.route('/cardapio/carnes')
-def carnes():
-    return render_template('carnes.html')
-
-@app.route('/cardapio/teppanyaki')
-def teppanyaki():
-    return render_template('teppanyaki.html')
-
-@app.route('/cardapio/frutosdomar')
-def frutosdomar():
-    return render_template('frutosdomar.html')
-
-@app.route('/cardapio/arroz')
-def arroz():
-    return render_template('arroz.html')
+    return render_template(
+        'categoria.html',
+        categoria=nome_categoria
+    )
 
 @app.route('/localizacao')
 def localizacao():
@@ -62,4 +50,5 @@ def contato():
 def sobre():
     return render_template('sobre.html')
 
-app.run(debug=True)
+if __name__ == "__main__":
+    app.run(debug=True)

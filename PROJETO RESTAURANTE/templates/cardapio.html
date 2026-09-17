@@ -1,9 +1,47 @@
 {% extends "base.html" %}
+
 {% block content %}
 
-    <!-- <div>
-        <p>Cardápio</p>
-        <img src="/static/menuexecutivo.png" alt="">
-    </div> -->
+{% if categoria is none %}
+
+    <div class="tc1">
+        <h2 style="padding: 10px;">Bem-vindo ao nosso cardápio!</h2>
+
+        <p style=""> Escolha uma opção para conhecer nossos pratos.</p>
+
+    </div>
+
+    <div class="menucardapio">
+        <a href="{{ url_for('cardapio', categoria='entradas') }}">
+        <img
+            class="menu-card"
+            style="height: 400px; width: 550px; margin: 10px;"
+            src="{{ url_for('static', filename='entradas.png') }}"
+            alt="Entradas"
+        >
+    </a>
+
+    </div>
+
+
+{% elif categoria == 'menuexecutivo' %}
+
+    <h2>Menu Executivo</h2>
+
+    <img
+        src="{{ url_for('static', filename='menuexecutivoinicial.png') }}"
+        alt="Menu Executivo"
+    >
+
+{% elif categoria == 'nossosqueridinhos' %}
+
+    <h2>Os Nossos Queridinhos</h2>
+
+    <img
+        src="{{ url_for('static', filename='queridinhos.png') }}"
+        alt="Os Nossos Queridinhos"
+    >
+
+{% endif %}
 
 {% endblock %}

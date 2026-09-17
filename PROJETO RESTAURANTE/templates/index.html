@@ -1,21 +1,27 @@
 {% extends "base.html" %}
+
 {% block content %}
 
-    <div class="menuex1">
-        <a href="/cardapio/menuexecutivo">
-            <img 
-                class="menu-card" 
-                style="height: 400px; width: 550px; margin: 10px;" 
-                src="{{ url_for('static', filename='menuexecutivoinicial.png') }}" 
-                alt="Menu Executivo">
-        </a>
-        <a href="/cardapio/queridinhos">
-            <img 
-                class="menu-card" 
-                style="height: 400px; width: 550px; margin: 10px;" 
-                src="{{ url_for('static', filename='queridinhos.png') }}" 
-                alt="Queridinhos">
-        </a>
-    </div>
+<div class="menuex1">
+
+    <a href="{{ url_for('cardapio', categoria='menuexecutivo') }}">
+        <img
+            class="menu-card"
+            style="height: 400px; width: 550px; margin: 10px;"
+            src="{{ url_for('static', filename='menuexecutivoinicial.png') }}"
+            alt="Menu Executivo"
+        >
+    </a>
+
+    <a href="{{ url_for('cardapio', categoria='nossosqueridinhos') }}">
+        <img
+            class="menu-card"
+            style="height: 400px; width: 550px; margin: 10px;"
+            src="{{ url_for('static', filename='queridinhos.png') }}"
+            alt="Os Nossos Queridinhos"
+        >
+    </a>
+
+</div>
 
 {% endblock %}

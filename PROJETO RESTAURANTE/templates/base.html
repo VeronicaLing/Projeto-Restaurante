@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Muralha Restaurante</title>
     <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTgWT77_yzvLO8My8aMQNq8L7pgqtioT5_2gYKB3uOXL1hQeDiy1vPYLmuP&s=10">
-    <link rel="stylesheet" href="../static/frontend.css">
-
+    <link rel="stylesheet" href="{{ url_for('static', filename='frontend.css') }}">
+    
 </head>
 <body class="body">
 
@@ -21,8 +21,8 @@
                 <a style="margin-right: 16px; color: rgb(72, 2, 2);" href="/cardapio" class="btn" style="margin-right: 15px;">CARDÁPIO</a>
                 <a href="/galeria" class="btn" style="margin-right: 15px; color: rgb(72, 2, 2);">GALERIA</a>
                 <a href="/localizacao" class="btn" style="margin-right: 15px; color: rgb(72, 2, 2);">LOCALIZAÇÃO</a>
-                <a style="margin-left: 1050px; margin-right: 16px; color: rgb(72, 2, 2);" href="/sobre" class="btn" style="margin-right: 15px;">Sobre</a>
-                <a href="/contato" class="btn" style="margin-right: 15px; color: rgb(72, 2, 2);">Contato</a>
+                <a style="margin-left: 1050px; margin-right: 16px; color: rgb(72, 2, 2);" href="/sobre" class="btn" style="margin-right: 15px;">SOBRE</a>
+                <a href="/contato" class="btn" style="margin-right: 15px; color: rgb(72, 2, 2);">CONTATO</a>
                 <span style="margin-left: 45px" class="cart-icon" id="cart-count">🛒 0</span>
             </ul>
         </div>

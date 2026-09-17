@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="categoria-container">
+
+    <h2 class="titulo-categoria">
+        {{ nome_categoria }}
+    </h2>
+
+    {% if categoria == 'menuexecutivo' %}
+
+        <div class="cardapio-imagem">
+            <img src="{{ url_for('static', filename=imagem) }}" alt="Cardápio Menu Executivo">
+        </div>
+
+
+    {% elif categoria == 'queridinhos' %}
+
+        <div class="cardapio-imagem">
+            <img src="{{ url_for('static', filename=imagem) }}" alt="Cardápio Os Nossos Queridinhos">
+        </div>
+
+
+    {% else %}
+
+        <div class="cardapio-imagem">
+            <img src="{{ url_for('static', filename=imagem) }}" alt="{{ nome_categoria }}">
+        </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}

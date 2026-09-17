@@ -56,3 +56,14 @@
 .text1{
     padding-right: 50px;
 }
+
+.tc1{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    padding: 25px;
+    font-size: 20px;
+}
+
+.menucardapio{
+    padding-left: 450px;
+}

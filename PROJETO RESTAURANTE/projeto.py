@@ -6,29 +6,44 @@ app = Flask ("Restaurante")
 def HomePage():
     return render_template('index.html')
 
+@app.route('/cardapio')
 @app.route('/cardapio/<categoria>')
-def categoria(categoria):
+def cardapio(categoria=None):
 
     categorias = {
-        'menuexecutivo': 'Menu Executivo',
-        'bebidas': 'Bebidas',
-        'aves': 'Aves',
-        'carnes': 'Carnes',
-        'teppanyaki': 'Teppanyaki',
-        'frutosdomar': 'Frutos do Mar',
-        'arroz': 'Arroz',
-        'queridinhos': 'Queridinhos',
+        'menuexecutivo': {
+            'nome': 'Menu Executivo',
+            'imagem': 'menuexecutivoinicial.png'
+        },
+
+        'nossosqueridinhos': {
+            'nome': 'Os Nossos Queridinhos',
+            'imagem': 'queridinhos.png'
+        },
+        
+        'entradas': {
+            'nome': 'Entradas',
+            'imagem': 'entradas.png'
+        },
     }
 
-    nome_categoria = categorias.get(categoria)
+    if categoria is None:
+        return render_template(
+            'cardapio.html',
+            categoria=None
+        )
 
-    if not nome_categoria:
+    dados_categoria = categorias.get(categoria)
+
+    if dados_categoria is None:
         return "Categoria não encontrada", 404
 
     return render_template(
-        'categoria.html',
-        categoria=nome_categoria
-    )
+        'cardapio.html',
+        categoria=categoria,
+        nome_categoria=dados_categoria['nome'],
+        imagem=dados_categoria['imagem'])
+
 
 @app.route('/localizacao')
 def localizacao():
